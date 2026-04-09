@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Licenciamento SE | Michele Souza Cezar</title>
+    <title>Guia de Licenciamento & Contratos | Michele Souza Cezar</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,19 +13,17 @@
         .bg-se-blue { background-color: #003A70; }
         .bg-se-red { background-color: #E30613; }
         .card { background: #ffffff; border-radius: 4px; border: 1px solid #e2e8f0; transition: box-shadow 0.3s; }
-        .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .nav-button { border-bottom: 3px solid transparent; color: #64748b; font-weight: 500; transition: all 0.2s; font-size: 0.7rem; text-transform: uppercase; white-space: nowrap; }
         .nav-button.active { border-bottom: 3px solid #003A70; color: #003A70; font-weight: 700; }
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         .perfil-badge { font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 2px; text-transform: uppercase; }
-        .rule-box { border-left: 4px solid #E30613; background-color: #fef2f2; }
+        .process-badge { background: #e2e8f0; color: #475569; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 800; }
     </style>
 </head>
 <body class="text-slate-800 pb-12">
 
-    <!-- Header Elegante -->
     <header class="bg-se-blue text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center border-b-4 border-se-red">
             <div class="flex items-center gap-4">
@@ -33,8 +31,8 @@
                     <svg width="25" height="25" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" fill="white"/><rect x="10" y="10" width="20" height="20" fill="#003A70"/></svg>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold uppercase tracking-tighter leading-none">Guia de Licenciamento</h1>
-                    <p class="text-blue-300 text-[10px] font-medium mt-1 uppercase tracking-wider">Regras Técnicas e Estratégia Comercial</p>
+                    <h1 class="text-xl font-bold uppercase tracking-tighter leading-none">Guia de Licenciamento & Contratos</h1>
+                    <p class="text-blue-300 text-[10px] font-medium mt-1 uppercase tracking-wider">Dicionário de Regras e Processos SoftExpert</p>
                 </div>
             </div>
             <div class="text-right">
@@ -44,228 +42,154 @@
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-8">
+    <main class="max-w-6xl mx-auto px-6 py-8">
         
-        <!-- Navegação de Abas -->
         <nav class="flex border-b border-slate-300 mb-8 bg-white shadow-sm overflow-x-auto scrollbar-hide rounded-t-lg">
-            <button onclick="showTab('modalidades')" id="btn-modalidades" class="nav-button active px-6 py-4 flex items-center gap-2">
-                <i class="fas fa-layer-group"></i> 1. Modalidades
+            <button onclick="showTab('contratos')" id="btn-contratos" class="nav-button active px-6 py-4 flex items-center gap-2">
+                <i class="fas fa-file-signature text-se-red"></i> 1. Dicionário de Contratos
+            </button>
+            <button onclick="showTab('modalidades')" id="btn-modalidades" class="nav-button px-6 py-4 flex items-center gap-2">
+                <i class="fas fa-layer-group"></i> 2. Modalidades de Uso
             </button>
             <button onclick="showTab('perfis')" id="btn-perfis" class="nav-button px-6 py-4 flex items-center gap-2">
-                <i class="fas fa-user-shield"></i> 2. Perfis de Usuário
+                <i class="fas fa-user-shield"></i> 3. Perfis e Combinações
             </button>
-            <button onclick="showTab('combinacoes')" id="btn-combinacoes" class="nav-button px-6 py-4 flex items-center gap-2">
-                <i class="fas fa-vial"></i> 3. Regras do Sistema
-            </button>
-            <button onclick="showTab('vendas')" id="btn-vendas" class="nav-button px-6 py-4 flex items-center gap-2 text-se-red">
-                <i class="fas fa-lightbulb"></i> 4. Sugestões de Venda
+            <button onclick="showTab('fluxo')" id="btn-fluxo" class="nav-button px-6 py-4 flex items-center gap-2">
+                <i class="fas fa-sync-alt"></i> 4. Ativação (DW/DC)
             </button>
         </nav>
 
-        <!-- 1. Modalidades (Permanent vs Subscription) -->
-        <div id="modalidades" class="tab-content active">
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-                <div class="card p-6">
-                    <h3 class="font-bold se-blue uppercase text-sm mb-3 border-b pb-2 flex items-center gap-2">
-                        <i class="fas fa-gem text-blue-400"></i> Permanente (Permanent)
-                    </h3>
-                    <p class="text-xs text-slate-600 mb-4 leading-relaxed">Modelo de aquisição CAPEX. O cliente compra a <strong>propriedade</strong> da licença. É um ativo imobilizado da empresa.</p>
-                    <ul class="text-[11px] space-y-2 text-slate-500">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Investimento único (Asset).</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Manutenção anual para suporte e atualizações.</li>
-                    </ul>
+        <div id="contratos" class="tab-content active">
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                <div class="card p-5 border-t-4 border-t-amber-500">
+                    <h4 class="font-bold se-blue text-xs uppercase mb-2">Temporário</h4>
+                    <p class="text-[11px] text-slate-600 mb-2">Projetos, auditorias e laboratórios.</p>
+                    <span class="text-[10px] font-bold text-amber-600">Prazo: 6 meses (Cli) / 1 ano (Parc)</span>
                 </div>
-                <div class="card p-6">
-                    <h3 class="font-bold se-blue uppercase text-sm mb-3 border-b pb-2 flex items-center gap-2">
-                        <i class="fas fa-calendar-check text-se-red"></i> Subscrição (Subscription)
-                    </h3>
-                    <p class="text-xs text-slate-600 mb-4 leading-relaxed">Modelo OPEX. Pagamento pelo <strong>direito de uso</strong> (modelo de aluguel/SaaS).</p>
-                    <ul class="text-[11px] space-y-2 text-slate-500">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Valor recorrente (anual ou mensal).</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Manutenção e suporte inclusos na parcela.</li>
-                    </ul>
+                <div class="card p-5 border-t-4 border-t-blue-500">
+                    <h4 class="font-bold se-blue text-xs uppercase mb-2">Trial</h4>
+                    <p class="text-[11px] text-slate-600 mb-2">Degustação para Prospects ou novos módulos.</p>
+                    <span class="text-[10px] font-bold text-blue-600">Prazo Máximo: 2 meses</span>
+                </div>
+                <div class="card p-5 border-t-4 border-t-green-600">
+                    <h4 class="font-bold se-blue text-xs uppercase mb-2">Vigente</h4>
+                    <p class="text-[11px] text-slate-600 mb-2">Contrato padrão de venda para novos clientes.</p>
+                    <span class="text-[10px] font-bold text-green-600">Prazo: Conforme contratação</span>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card p-6 border-l-4 border-l-slate-400">
-                    <h4 class="font-bold se-blue uppercase text-xs mb-1">Nominativa (Named)</h4>
-                    <p class="text-[11px] text-slate-600">Exclusiva para um CPF/Login específico. Acesso garantido 24 horas por dia.</p>
-                </div>
-                <div class="card p-6 border-l-4 border-l-slate-400">
-                    <h4 class="font-bold se-blue uppercase text-xs mb-1">Flutuante (Concurrent)</h4>
-                    <p class="text-[11px] text-slate-600">Compartilhada. O número contratado limita apenas os acessos simultâneos.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2. Detalhes dos Perfis -->
-        <div id="perfis" class="tab-content">
+            <h3 class="text-xs font-bold uppercase text-slate-400 mb-4 tracking-widest">Processos de Entrada</h3>
             <div class="space-y-4">
-                <div class="card p-5 border-l-4 border-l-se-blue">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold se-blue text-sm uppercase">GESTOR (Manager)</span>
-                        <span class="perfil-badge bg-green-100 text-green-700 border border-green-200">100% Valor</span>
-                    </div>
-                    <p class="text-xs text-slate-600 leading-relaxed italic">Acesso total. Gestão de processos, análise, aprovação e ferramentas de modelagem (Design).</p>
-                </div>
-
-                <div class="card p-5 border-l-4 border-l-blue-400">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold se-blue text-sm uppercase">APOIO (Staff)</span>
-                        <span class="perfil-badge bg-blue-100 text-blue-700 border border-blue-200">60% Valor</span>
-                    </div>
-                    <p class="text-xs text-slate-600 leading-relaxed italic">Perfil operacional. Focado na execução das tarefas programadas pelos Gestores.</p>
-                </div>
-
-                <div class="card p-5 border-l-4 border-l-slate-400">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold se-blue text-sm uppercase">BÁSICO (Basic)</span>
-                        <span class="perfil-badge bg-slate-200 text-slate-700 border border-slate-300">25% Valor</span>
-                    </div>
-                    <p class="text-xs text-slate-600 leading-relaxed italic">Abertura de chamados (instanciar), autoavaliação e menus de consulta.</p>
-                </div>
-
-                <div class="card p-5 border-l-4 border-l-amber-500 bg-amber-50">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold text-amber-700 text-sm uppercase">CONSULTA (View)</span>
-                        <span class="perfil-badge bg-amber-100 text-amber-700 border border-amber-200">10% Valor</span>
-                    </div>
-                    <p class="text-xs text-amber-900 font-bold leading-relaxed">
-                        IMPORTANTE: Estritamente visualização. NÃO executa tarefas, NÃO toma ações e NÃO aprova etapas.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. Regras de Combinação (Lógica de Sistema) -->
-        <div id="combinacoes" class="tab-content">
-            <div class="space-y-6">
-                <div>
-                    <h3 class="text-xs font-bold uppercase text-slate-400 mb-3 tracking-widest flex items-center gap-2">
-                        <i class="fas fa-check-double text-green-500"></i> Mix Padrão (Sem restrições)
-                    </h3>
-                    <div class="card p-6 bg-slate-50">
-                        <p class="text-xs text-slate-600 mb-4">O sistema aceita livremente a mistura de:</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-white border border-slate-200 px-3 py-1 text-[10px] font-bold rounded">GESTOR</span>
-                            <span class="bg-white border border-slate-200 px-3 py-1 text-[10px] font-bold rounded">APOIO</span>
-                            <span class="bg-white border border-slate-200 px-3 py-1 text-[10px] font-bold rounded">BÁSICO</span>
-                            <span class="bg-white border border-slate-200 px-3 py-1 text-[10px] font-bold rounded">CONSULTA</span>
-                        </div>
+                <div class="card p-4 flex gap-4 items-start">
+                    <span class="process-badge">SSO</span>
+                    <div>
+                        <h4 class="font-bold text-xs uppercase">Submeter Ordem de Venda (CML000007)</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">Utilizado para novas vendas. Cadastro no formulário Customer. Requer atenção à versão contratada.</p>
                     </div>
                 </div>
-
-                <div>
-                    <h3 class="text-xs font-bold uppercase text-slate-400 mb-3 tracking-widest flex items-center gap-2">
-                        <i class="fas fa-ban text-se-red"></i> Regra Restritiva do Perfil FULL
-                    </h3>
-                    <div class="card p-6 border-2 border-se-red">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-lg font-black se-blue italic tracking-tighter">PERFIL FULL (70% do Manager)</span>
-                        </div>
-                        
-                        <div class="rule-box p-4">
-                            <p class="text-[11px] font-black text-se-red uppercase mb-4 tracking-tighter flex items-center gap-2">
-                                <i class="fas fa-exclamation-circle"></i> O sistema bloqueará o faturamento nas seguintes combinações:
-                            </p>
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div class="bg-white p-3 border border-red-100 rounded">
-                                    <div class="flex items-center gap-2 text-[11px] font-bold text-slate-700">
-                                        <i class="fas fa-times-circle text-se-red"></i> FULL + GESTOR (Manager)
-                                    </div>
-                                    <p class="text-[9px] text-se-red uppercase mt-1 font-bold">ERRO DE CONFIGURAÇÃO</p>
-                                </div>
-                                <div class="bg-white p-3 border border-red-100 rounded">
-                                    <div class="flex items-center gap-2 text-[11px] font-bold text-slate-700">
-                                        <i class="fas fa-times-circle text-se-red"></i> FULL + APOIO (Staff)
-                                    </div>
-                                    <p class="text-[9px] text-se-red uppercase mt-1 font-bold">ERRO DE CONFIGURAÇÃO</p>
-                                </div>
-                                <div class="bg-green-50 p-3 border border-green-100 rounded">
-                                    <div class="flex items-center gap-2 text-[11px] font-bold text-green-800">
-                                        <i class="fas fa-check-circle"></i> FULL + BÁSICO (Basic)
-                                    </div>
-                                    <p class="text-[9px] text-green-600 uppercase mt-1 font-bold">ACEITO PELO SISTEMA</p>
-                                </div>
-                                <div class="bg-green-50 p-3 border border-green-100 rounded">
-                                    <div class="flex items-center gap-2 text-[11px] font-bold text-green-800">
-                                        <i class="fas fa-check-circle"></i> FULL + CONSULTA (View)
-                                    </div>
-                                    <p class="text-[9px] text-green-600 uppercase mt-1 font-bold">ACEITO PELO SISTEMA</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card p-4 flex gap-4 items-start">
+                    <span class="process-badge">LE008</span>
+                    <div>
+                        <h4 class="font-bold text-xs uppercase">Renovar Contrato de Cliente</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">Renovações comerciais. Deve-se selecionar obrigatoriamente a licença a ser substituída.</p>
+                    </div>
+                </div>
+                <div class="card p-4 flex gap-4 items-start">
+                    <span class="process-badge">FI004</span>
+                    <div>
+                        <h4 class="font-bold text-xs uppercase">Solicitar Temporária / Trial</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">Geração de licenças temporárias e alteração de registros de clientes.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 4. Sugestões de Venda (Estratégia) -->
-        <div id="vendas" class="tab-content">
+        <div id="modalidades" class="tab-content">
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="card p-6 border-t-4 border-t-se-blue">
-                    <h4 class="font-bold text-sm se-blue mb-3 uppercase">Cenário: Otimização Financeira</h4>
-                    <p class="text-[11px] text-slate-600 mb-4 leading-relaxed">Se o budget do cliente está no limite, mas ele precisa de acesso robusto:</p>
-                    <ul class="text-[11px] space-y-2 font-medium">
-                        <li class="p-2 bg-slate-50 rounded border border-slate-100">Use <strong>FULL</strong> em vez de Gestor para aprovadores que não modelam.</li>
-                        <li class="p-2 bg-slate-50 rounded border border-slate-100">Complemente com <strong>BÁSICO</strong> para o operacional abrir chamados.</li>
-                        <li class="text-[10px] text-se-red font-bold mt-2 uppercase">Atenção: Sem APOIO nesta proposta.</li>
-                    </ul>
-                </div>
-
-                <div class="card p-6 border-t-4 border-t-se-blue">
-                    <h4 class="font-bold text-sm se-blue mb-3 uppercase">Cenário: Alta Performance (Mix Completo)</h4>
-                    <p class="text-[11px] text-slate-600 mb-4 leading-relaxed">Para implementações completas onde o fluxo é contínuo:</p>
-                    <ul class="text-[11px] space-y-2 font-medium">
-                        <li class="p-2 bg-slate-50 rounded border border-slate-100"><strong>GESTOR:</strong> Para Admins e Donos de Processo.</li>
-                        <li class="p-2 bg-slate-50 rounded border border-slate-100"><strong>APOIO:</strong> Para Analistas e Operadores frequentes.</li>
-                        <li class="p-2 bg-slate-50 rounded border border-slate-100"><strong>CONSULTA:</strong> Para a Diretoria visualizar Dashboards.</li>
-                    </ul>
-                </div>
-
-                <div class="card p-6 md:col-span-2 bg-se-blue text-white">
-                    <div class="flex gap-4 items-start">
-                        <div class="bg-white/20 p-3 rounded">
-                            <i class="fas fa-brain"></i>
+                <div class="card p-6">
+                    <h3 class="font-bold se-blue uppercase text-sm mb-3">Permanente vs Subscrição</h3>
+                    <div class="space-y-4 text-[11px]">
+                        <div class="p-3 bg-slate-50 rounded">
+                            <p class="font-bold">Permanente:</p> Propriedade (CAPEX). Pagamento único + Manutenção anual.
                         </div>
-                        <div>
-                            <h4 class="font-bold text-xs uppercase mb-2">Visão Estratégica Sales Ops</h4>
-                            <p class="text-xs text-blue-100 leading-relaxed">
-                                Antes de fechar o faturamento, valide com o executivo se a intenção dele ao vender "Full" é economizar no preço de tabela ou se ele realmente precisa de um "Gestor Simplificado". Se houver qualquer perfil de Apoio (Staff) na mesma solução, o faturamento retornará para você corrigir. Seja a barreira lógica para evitar esse retrabalho!
-                            </p>
+                        <div class="p-3 bg-slate-50 rounded">
+                            <p class="font-bold">Subscrição:</p> Direito de uso (OPEX). Modelo recorrente/SaaS.
                         </div>
                     </div>
                 </div>
+                <div class="card p-6">
+                    <h3 class="font-bold se-blue uppercase text-sm mb-3">Nominativa vs Flutuante</h3>
+                    <div class="space-y-4 text-[11px]">
+                        <div class="p-3 bg-slate-50 rounded">
+                            <p class="font-bold">Nominativa:</p> Login individual exclusivo 24/7.
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded">
+                            <p class="font-bold">Flutuante:</p> Compartilhada entre usuários (limite simultâneo).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perfis" class="tab-content">
+            <div class="card p-6 border-2 border-se-red mb-6">
+                <h3 class="text-sm font-black se-blue italic mb-4 uppercase">Regra do Sistema: Perfil FULL (70%)</h3>
+                <div class="grid md:grid-cols-2 gap-4 text-[11px] font-bold">
+                    <div class="flex items-center gap-2 text-se-red italic"><i class="fas fa-times-circle"></i> FULL + GESTOR / APOIO = ERRO</div>
+                    <div class="flex items-center gap-2 text-green-600"><i class="fas fa-check-circle"></i> FULL + BÁSICO / CONSULTA = OK</div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="card p-4"><p class="text-[10px] font-bold se-blue">GESTOR (100%)</p><p class="text-[10px] text-slate-500">Gestão e Modelagem.</p></div>
+                <div class="card p-4"><p class="text-[10px] font-bold se-blue">APOIO (60%)</p><p class="text-[10px] text-slate-500">Execução operacional.</p></div>
+                <div class="card p-4"><p class="text-[10px] font-bold se-blue">BÁSICO (25%)</p><p class="text-[10px] text-slate-500">Instanciar e Autoavaliação.</p></div>
+                <div class="card p-4"><p class="text-[10px] font-bold text-slate-400">CONSULTA (10%)</p><p class="text-[10px] text-slate-500">Visualização apenas.</p></div>
+            </div>
+        </div>
+
+        <div id="fluxo" class="tab-content">
+            <div class="card p-8 bg-slate-900 text-white">
+                <h3 class="text-sm font-bold uppercase mb-6 flex items-center gap-2">
+                    <i class="fas fa-network-wired text-se-red"></i> Ciclo de Sincronização
+                </h3>
+                <div class="flex flex-col md:flex-row items-center gap-4 text-[11px] text-center">
+                    <div class="flex-1 p-4 border border-slate-700 rounded bg-slate-800">
+                        <p class="font-bold mb-1">SESUITE FORM</p>
+                        <p class="text-slate-400">Registro Inicial</p>
+                    </div>
+                    <i class="fas fa-chevron-right hidden md:block text-slate-600"></i>
+                    <div class="flex-1 p-4 border border-slate-700 rounded bg-slate-800">
+                        <p class="font-bold mb-1">DATA WAREHOUSE (DW)</p>
+                        <p class="text-slate-400 text-[10px]">Envio de hora em hora (Hora Cheia)</p>
+                    </div>
+                    <i class="fas fa-chevron-right hidden md:block text-slate-600"></i>
+                    <div class="flex-1 p-4 border border-slate-700 rounded bg-slate-800">
+                        <p class="font-bold mb-1">DISTRIBUTION CENTER (DC)</p>
+                        <p class="text-slate-400">Sincronização em Tempo Real</p>
+                    </div>
+                </div>
+                <p class="mt-8 text-[10px] text-amber-400 italic font-bold">
+                    Atenção! Se a licença aparece no portal Customer Details, ela já está no DC e pronta para funcionar.
+                </p>
             </div>
         </div>
 
     </main>
 
-    <!-- Assinatura Personalizada Michele -->
-    <footer class="max-w-5xl mx-auto px-6 py-12 text-center border-t border-slate-300 mt-12">
-        <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-4">Documento Gerado para Apoio Back Office</p>
-        <div class="inline-block p-4 bg-white rounded shadow-sm border border-slate-200">
-            <p class="text-sm font-bold se-blue uppercase tracking-tighter">Michele Souza Cezar</p>
-            <p class="text-[10px] text-slate-500 uppercase font-medium">Sales Operations | SoftExpert</p>
-            <div class="flex justify-center gap-6 mt-4 opacity-50">
-                <i class="fas fa-running text-lg" title="Correr para desconectar"></i>
-                <i class="fas fa-cat text-lg" title="Theo & Chloe"></i>
-                <i class="fas fa-chess-pawn text-lg" title="Estratégia e Lógica"></i>
-            </div>
+    <footer class="max-w-5xl mx-auto px-6 py-8 text-center border-t border-slate-200 mt-8">
+        <p class="text-xs font-bold se-blue">Michele Souza Cezar | Sales Ops SoftExpert</p>
+        <div class="flex justify-center gap-4 mt-4 opacity-30">
+            <i class="fas fa-running" title="Time to Run!"></i>
+            <i class="fas fa-cat" title="Theo & Chloe"></i>
         </div>
     </footer>
 
     <script>
         function showTab(tabId) {
-            // Esconde todas as abas
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            // Desativa todos os botões
             document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
-            // Ativa a aba e o botão selecionados
             document.getElementById(tabId).classList.add('active');
             document.getElementById('btn-' + tabId).classList.add('active');
-            // Scroll suave para o topo da aba se necessário
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
